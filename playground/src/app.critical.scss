@@ -452,3 +452,79 @@ main > .panel + .panel {
     top: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+// Validator
+.content {
+  margin: 55px;
+
+  h1 {
+    @include txt;
+    @include txt-strong;
+  }
+
+  .url {
+    display: flex;
+
+    &-input {
+      height: 50px;
+
+      &--field {
+        height: 50px;
+        border-radius: 4px;
+        background-color: #ffffff;
+      }
+      &--submit {
+        width: 122px;
+        height: 50px;
+        border-radius: 4px;
+        background-color: #005af0;
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 174px;
+    height: 100%;
+    background-image: linear-gradient(182deg, #00dcc0 100%, #005af0 51%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

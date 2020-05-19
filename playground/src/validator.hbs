@@ -48,12 +48,12 @@
     <header class="ap-o-header">
       <a class="ap-o-header-icon" href="./validator.html">
         <svg viewBox="0 0 30 30" id="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch --><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group-2"><path d="M0,15 C0,23.2841667 6.71583335,30 15,30 C23.2845834,30 30,23.2841667 30,15 C30,6.71583331 23.2845834,0 15,0 C6.71583335,0 0,6.71583331 0,15 Z" id="White-Fill-Copy" fill="#FFFFFF"></path><path d="M13.8508333,24.0979167 L12.7108333,24.0979167 L13.8379167,17.2745833 L10.3475,17.2795833 C10.3475,17.2795833 10.3145833,17.2804167 10.29875,17.2804167 C9.98458332,17.2804167 9.72958334,17.0254167 9.72958334,16.71125 C9.72958334,16.57625 9.85541665,16.3479167 9.85541665,16.3479167 L16.1270833,5.88833331 L17.28625,5.89291666 L16.1308334,12.7270833 L19.6391667,12.7229167 C19.6391667,12.7229167 19.6770834,12.7220833 19.695,12.7220833 C20.0091667,12.7220833 20.26375,12.9766667 20.26375,13.29125 C20.26375,13.41875 20.2141667,13.5308333 20.1429167,13.6258333 L13.8508333,24.0979167 Z M15,0 C6.71583335,0 0,6.71583331 0,15 C0,23.2841667 6.71583335,30 15,30 C23.2845834,30 30,23.2841667 30,15 C30,6.71583331 23.2845834,0 15,0 Z" id="Main-Copy" fill="#005AF0" fill-rule="nonzero"></path></g></g></svg>
-        <span class="ap-o-header-text ap-o-header-icon-text uppercase">AMP</span>
-        <span class="ap-o-header-text ap-o-header-uppercase">Validator</span>
+        <span class="ap-o-header-text ap-o-header-icon-text">AMP Validator</span>
       </a>
 
       <div id="document-title" tabindex="0" role="button" class="ap-o-header-text caret-right hidden">Untitled</div>
       <div id="toolbar">
+        <a class="hide-on-mobile" href="./">Playground</a>
         <div id="show-menu" class="button" tabindex="0" role="button" aria-label="Show Menu">
           <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -64,7 +64,39 @@
     </header>
     <div id="error-list" class="elevation-8dp"></div>
     <main>
-
+      <div id="drag"></div>
+      <section id="preview" class="panel">
+        <div class="content">
+          <h1>Validate your AMP page</h1>
+          <div class="url">
+            <form action="">
+              <input class="url-input url-input--field" type="url" id="url" name="url" placeholder="Enter your AMP page">
+              <input class="url-input url-input--submit" type="submit" value="Submit">
+            </form>
+          </div>
+          <p>The AMP Validator can be accessed directly from your browser's toolbar using the chrome extension. As you browse, it will automatically validate each AMP page visited and gives a visual indication of the validity lorem ipsum dolor sit how to amet. </p>
+          <div class="red feedback">
+            <h3>Sorry. Your page is not AMP valid.<br>Validation Status: FAIL.</h3>
+            <p>To better understand the complete list of potential errors, learn more about the errors in the AMP Validation Errors guide.</p>
+            <ul class="feedback-error-list">
+              <li class="feedback-error-list-item">
+                <p class="feedback-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="feedback-error-list-item-colum">line 6, column 0</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="source" class="panel active">
+        <div class="panel-header hide-on-mobile">
+          <div id="runtime-select"></div>
+          <div class="flex-right">
+          {{> button/button.hbs id="import-email" class="hidden" text="Import email"}}
+          {{> button/button.hbs id="format-source" class="square" ariaLabel="format source code" text="{  }"}}
+          </div>
+        </div>
+        {{> loader/loader.hbs theme="light"}}
+      </section>
     </main>
   </body>
 </html>
