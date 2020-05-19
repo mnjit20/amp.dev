@@ -67,6 +67,12 @@ module.exports = (env, argv) => {
         include: ['main'],
       }),
       new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, 'src/validator.hbs'),
+        filename: './validator.html',
+        inlineSource: 'critical..+$',
+        gaTrackingId: config.gaTrackingId,
+      }),
     ],
     module: {
       rules: [
