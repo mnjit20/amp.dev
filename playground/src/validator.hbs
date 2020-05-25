@@ -63,30 +63,68 @@
       </div>
     </header>
     <div id="error-list" class="elevation-8dp"></div>
+
     <main>
       <div id="drag"></div>
-      <section id="preview" class="panel">
-        <div class="content">
+
+      <section class="panel panel-console">
+        <div class="panel-console-content">
           <h1>Validate your AMP page</h1>
-          <div class="url">
+          <div class="panel-console-content-url">
             <form action="">
-              <input class="url-input url-input--field" type="url" id="url" name="url" placeholder="Enter your AMP page">
-              <input class="url-input url-input--submit" type="submit" value="Submit">
+              <input class="panel-console-content-url-input" type="url" id="url" name="url" placeholder="Enter your AMP page">
+              <input class="panel-console-content-url-input" type="submit" value="Submit">
             </form>
           </div>
-          <p>The AMP Validator can be accessed directly from your browser's toolbar using the chrome extension. As you browse, it will automatically validate each AMP page visited and gives a visual indication of the validity lorem ipsum dolor sit how to amet. </p>
-          <div class="red feedback">
-            <h3>Sorry. Your page is not AMP valid.<br>Validation Status: FAIL.</h3>
-            <p>To better understand the complete list of potential errors, learn more about the errors in the AMP Validation Errors guide.</p>
-            <ul class="feedback-error-list">
-              <li class="feedback-error-list-item">
-                <p class="feedback-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-                <span class="feedback-error-list-item-colum">line 6, column 0</span>
-              </li>
-            </ul>
+          <!-- <p class="panel-console-content-intro">The AMP Validator can be accessed directly from your browser's toolbar using the chrome extension. As you browse, it will automatically validate each AMP page visited and gives a visual indication of the validity lorem ipsum dolor sit how to amet. </p> -->
+          <div class="panel-console-content-feedback">
+            <div class="panel-console-content-feedback-icon">
+              <span></span>
+            </div>
+            <div class="panel-console-content-feedback-summary">
+              <h3>Sorry. Your page is not AMP valid.<br>Validation Status: FAIL.</h3>
+              <p>To better understand the complete list of potential errors, learn more about the errors in the AMP Validation Errors guide.</p>
+            </div>
           </div>
+          <ul class="panel-console-content-feedback-list">
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+            <li class="panel-console-content-feedback-list-item">
+              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+            </li>
+
+          </ul>
         </div>
       </section>
+
+
       <section id="source" class="panel active">
         <div class="panel-header hide-on-mobile">
           <div id="runtime-select"></div>
