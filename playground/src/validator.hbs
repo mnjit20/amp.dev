@@ -65,62 +65,121 @@
     <div id="error-list" class="elevation-8dp"></div>
 
     <main>
+      <div class="highlight"></div>
       <div id="drag"></div>
 
       <section class="panel panel-console">
         <div class="panel-console-content">
           <h1>Validate your AMP page</h1>
-          <div class="panel-console-content-url">
-            <form action="">
-              <input class="panel-console-content-url-input" type="url" id="url" name="url" placeholder="Enter your AMP page">
-              <input class="panel-console-content-url-input" type="submit" value="Submit">
-            </form>
-          </div>
+
+          <form class="panel-console-content-form" action="">
+            <input class="panel-console-content-form-input" type="url" id="url" name="url" placeholder="Enter your AMP page">
+            <input class="panel-console-content-form-input" type="submit" value="Submit">
+          </form>
+
           <!-- <p class="panel-console-content-intro">The AMP Validator can be accessed directly from your browser's toolbar using the chrome extension. As you browse, it will automatically validate each AMP page visited and gives a visual indication of the validity lorem ipsum dolor sit how to amet. </p> -->
-          <div class="panel-console-content-feedback">
-            <div class="panel-console-content-feedback-icon">
-              <span></span>
+
+          <!-- <div class="panel-console-content-feedback pass">
+            <div class="validation-icon pass">
             </div>
             <div class="panel-console-content-feedback-summary">
-              <h3>Sorry. Your page is not AMP valid.<br>Validation Status: FAIL.</h3>
+              <h3>Sorry. Your page is not AMP valid.<br>Validation Status: <span>PASS</span>.</h3>
+            </div>
+          </div> -->
+
+          <div class="panel-console-content-feedback fail">
+            <div class="validation-icon fail">
+            </div>
+            <div class="panel-console-content-feedback-summary">
+              <h3>Sorry. Your page is not AMP valid.<br>Validation Status: <span>FAIL</span>.</h3>
               <p>To better understand the complete list of potential errors, learn more about the errors in the AMP Validation Errors guide.</p>
             </div>
           </div>
-          <ul class="panel-console-content-feedback-list">
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
-            </li>
-            <li class="panel-console-content-feedback-list-item">
-              <p class="panel-console-content-feedback-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
-              <span class="panel-console-content-feedback-list-item-line">line 6, column 0</span>
+
+          <ul class="panel-console-content-error-list">
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon fail"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
             </li>
 
+            <li class="panel-console-content-error-list-item active">
+              <div class="validation-icon warn"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon fail"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon warn"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon fail"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon warn"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon fail"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon warn"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon fail"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+
+            <li class="panel-console-content-error-list-item">
+              <div class="validation-icon warn"></div>
+              <div>
+                <p class="panel-console-content-error-list-item-description">The mandatory attribute is missing in tag html. Learn more.</p>
+                <span class="panel-console-content-error-list-item-line">line 6, column 0</span>
+              </div>
+            </li>
+            
           </ul>
+
         </div>
       </section>
 
