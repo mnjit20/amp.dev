@@ -18,6 +18,12 @@
   max-width: calc(50% - 4px);
   height: 100%;
 
+
+  @media (min-width: 768px) {
+    top: 65px;
+    height: calc(100% - 75px);
+  }
+
   .title {
     display: flex;
     align-items: center;
