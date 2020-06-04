@@ -38,6 +38,7 @@ import params from './params/base.js';
 import events from './events/events.js';
 import titleUpdater from './title-updater/base.js';
 import snackbar from './snackbar/base.js';
+import flyIn from './fly-in/base.js';
 import {runtimes, EVENT_SET_RUNTIME} from './runtime/runtimes.js';
 import detectRuntime from './runtime/detector.js';
 import addSplitPaneBehavior from './split-pane/base.js';
