@@ -5,15 +5,15 @@
   position: absolute;
   top: 0;
   background: white;
-  width: 40%;
+  width: 42%;
   height: 100%;
   min-width: 240px;
   z-index: 100;
   transition: .3s;
 
   @media (min-width: 768px) {
-    top: 64px;
-    height: calc(100% - 72px);
+    top: 8px;
+    height: calc(100% - 16px);
   }
 
   &--left {
@@ -23,7 +23,7 @@
 
   &--right {
     right: 0;
-    transform: translate3d(105%, 0, 0);
+    transform: translate3d(100%, 0, 0);
   }
 
   &-header {

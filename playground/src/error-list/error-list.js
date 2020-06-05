@@ -31,6 +31,8 @@ class ErrorList extends FlyIn {
   constructor(target, trigger) {
     super(target);
 
+    this.target = target;
+
     this.trigger = Button.from(trigger, this.toggle.bind(this));
 
     // configure validator
@@ -70,24 +72,22 @@ class ErrorList extends FlyIn {
 
       /* eslint-enable max-len */
       if (validationResult.errors.length === 0) {
-        // this.target.classList.toggle('show', false);
+        this.hideFlyIn();
       }
-
-      console.log(content);
 
       this.upadateContent(content);
     });
   }
 
   renderError(error, index) {
-    return
+    return (
       `<li class="validation-error ${error.icon}" data-index="${index}">
         <div>
           <p class="message">${error.message}</p>
-          <div class="category">${error.category}</div>
           <div class="location">line ${error.line}, column ${error.col}</div>
         </div>
-      </li>`;
+      </li>`
+    );
   }
 
   // onItemClick(e) {
