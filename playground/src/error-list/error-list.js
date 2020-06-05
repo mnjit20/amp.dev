@@ -17,19 +17,22 @@ require('./error-list.scss');
 import events from '../events/events.js';
 import * as Button from '../button/button.js';
 import * as Validator from '../validator/validator.js';
+import FlyIn from '../fly-in/base.js';
 
 export const EVENT_ERROR_SELECTED = 'error-selected';
 
-export function createErrorList(container, trigger) {
-  return new ErrorList(container, trigger);
+export function createErrorList(target, trigger) {
+  return new ErrorList(target, trigger);
 }
 
 const DESKTOP_WIDTH = 1024;
 
-class ErrorList {
-  constructor(container, trigger) {
-    this.container = container;
+class ErrorList extends FlyIn {
+  constructor(target, trigger) {
+    super(target);
+
     this.trigger = Button.from(trigger, this.toggle.bind(this));
+
     // configure validator
     events.subscribe(
       Validator.EVENT_NEW_VALIDATION_RESULT,
@@ -61,64 +64,50 @@ class ErrorList {
     this.validationResult = validationResult;
     window.requestIdleCallback(() => {
       /* eslint-disable max-len */
-      this.container.innerHTML = `
+      const content = `
         <ul>${validationResult.errors.map(this.renderError).join('')}</ul>
         `;
+
       /* eslint-enable max-len */
       if (validationResult.errors.length === 0) {
-        this.container.classList.toggle('show', false);
+        // this.target.classList.toggle('show', false);
       }
+
+      console.log(content);
+
+      this.upadateContent(content);
     });
   }
 
   renderError(error, index) {
-    return `<li class="validation-error ${error.icon}" data-index="${index}">
-            <div>
-              <p class="message">${error.message}</p>
-              <div class="category">${error.category}</div>
-              <div class="location">line ${error.line}, column ${error.col}</div>
-            </div>
+    return
+      `<li class="validation-error ${error.icon}" data-index="${index}">
+        <div>
+          <p class="message">${error.message}</p>
+          <div class="category">${error.category}</div>
+          <div class="location">line ${error.line}, column ${error.col}</div>
+        </div>
       </li>`;
   }
 
-  toggle(e) {
-    if (this.container.classList.contains('show')) {
-      this.hideErrorList(e);
-    } else {
-      this.showErrorList(e);
-    }
-  }
-
-  hideErrorList() {
-    document.body.removeEventListener('click', this.onItemClickHandler, false);
-    this.container.classList.toggle('show', false);
-  }
-
-  showErrorList(e) {
-    e.stopPropagation();
-    this.onItemClickHandler = this.onItemClick.bind(this);
-    document.body.addEventListener('click', this.onItemClickHandler, false);
-    this.container.classList.toggle('show', true);
-  }
-
-  onItemClick(e) {
-    if (!this.validationResult) {
-      return;
-    }
-    const target = e.target.closest('li.validation-error');
-    if (!target) {
-      this.hideErrorList();
-      return;
-    }
-    const index = target.dataset.index;
-    const error = this.validationResult.errors[index];
-    if (!error) {
-      return;
-    }
-    e.stopPropagation();
-    if (window.innerWidth < DESKTOP_WIDTH) {
-      this.hideErrorList();
-    }
-    events.publish(EVENT_ERROR_SELECTED, error);
-  }
+  // onItemClick(e) {
+  //   if (!this.validationResult) {
+  //     return;
+  //   }
+  //   const target = e.target.closest('li.validation-error');
+  //   if (!target) {
+  //     this.hideErrorList();
+  //     return;
+  //   }
+  //   const index = target.dataset.index;
+  //   const error = this.validationResult.errors[index];
+  //   if (!error) {
+  //     return;
+  //   }
+  //   e.stopPropagation();
+  //   if (window.innerWidth < DESKTOP_WIDTH) {
+  //     // this.hideErrorList();
+  //   }
+  //   events.publish(EVENT_ERROR_SELECTED, error);
+  // }
 }

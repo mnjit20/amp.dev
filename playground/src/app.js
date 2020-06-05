@@ -26,6 +26,7 @@ import * as AutoImporter from './auto-importer/auto-importer.js';
 import * as ComponentsProvider from './components-provider/components-provider.js';
 import * as EmailLoader from './email-loader/email-loader.js';
 import * as ErrorList from './error-list/error-list.js';
+import * as FlyIn from './fly-in/base.js';
 import * as Validator from './validator/validator.js';
 import * as Editor from './editor/editor.js';
 import * as Preview from './preview/preview.js';
