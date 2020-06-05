@@ -6,16 +6,10 @@
     background: red;
     @include txt;
     display: block;
-    z-index: 1000;
     height: 100%;
     background: white;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-
-    @media (min-width: 768px) {
-      top: 65px;
-      height: calc(100% - 75px);
-    }
 
     ul {
       list-style-type: none;

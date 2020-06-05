@@ -2,17 +2,21 @@
 @import 'components/atoms/_text.scss';
 
 .fly-in {
+  $headerHeight: 55px;
+
   position: absolute;
-  top: 0;
-  background: white;
-  width: 42%;
-  height: 100%;
-  min-width: 240px;
   z-index: 100;
-  transition: .3s;
+  top: - #{$headerHeight};
+  width: 100%;
+  height: calc(100% + #{$headerHeight});
+  min-width: 240px;
+  overflow: hidden;
+  background: white;
+  transition: .3s ease-in;
 
   @media (min-width: 768px) {
     top: 8px;
+    width: 42%;
     height: calc(100% - 16px);
   }
 
