@@ -66,9 +66,11 @@ class ErrorList extends FlyIn {
     this.validationResult = validationResult;
     window.requestIdleCallback(() => {
       /* eslint-disable max-len */
-      const content = `
-        <ul>${validationResult.errors.map(this.renderError).join('')}</ul>
-        `;
+      const content = document.createElement('ul');
+      for (var i = 0; i < validationResult.errors.length; i++) {
+        const error = validationResult.errors[i]
+        content.appendChild(this.renderError(error, i))
+      }
 
       /* eslint-enable max-len */
       if (validationResult.errors.length === 0) {
@@ -80,34 +82,36 @@ class ErrorList extends FlyIn {
   }
 
   renderError(error, index) {
-    return (
-      `<li class="validation-error ${error.icon}" data-index="${index}">
-        <div>
-          <p class="message">${error.message}</p>
-          <div class="location">line ${error.line}, column ${error.col}</div>
-        </div>
-      </li>`
+    const errorElement = document.createElement('li');
+    errorElement.className = `validation-error ${error.icon}`;
+    errorElement.setAttribute('data-index', `${index}`);
+
+    errorElement.innerHTML = (
+      `<div>
+        <p class="message">${error.message}</p>
+        <div class="location">line ${error.line}, column ${error.col}</div>
+      </div>`
     );
+
+    errorElement.addEventListener('click', (e) => {
+      this.onErrorItemClick(e)
+    });
+
+    return errorElement;
   }
 
-  // onItemClick(e) {
-  //   if (!this.validationResult) {
-  //     return;
-  //   }
-  //   const target = e.target.closest('li.validation-error');
-  //   if (!target) {
-  //     this.hideErrorList();
-  //     return;
-  //   }
-  //   const index = target.dataset.index;
-  //   const error = this.validationResult.errors[index];
-  //   if (!error) {
-  //     return;
-  //   }
-  //   e.stopPropagation();
-  //   if (window.innerWidth < DESKTOP_WIDTH) {
-  //     // this.hideErrorList();
-  //   }
-  //   events.publish(EVENT_ERROR_SELECTED, error);
-  // }
+  onErrorItemClick(e) {
+    const target = e.target.closest('li.validation-error');
+    if (!target) {
+      this.hideErrorList();
+      return;
+    }
+
+    const index = target.dataset.index;
+    const error = this.validationResult.errors[index];
+
+    events.publish(EVENT_ERROR_SELECTED, error);
+  }
+
+
 }

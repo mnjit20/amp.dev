@@ -49,7 +49,8 @@ class FlyIn {
   }
 
   upadateContent(content) {
-    this.content.innerHTML = content;
+    this.content.innerHTML = '';
+    this.content.appendChild(content);
   }
 
   registerButtons(target) {
