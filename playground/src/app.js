@@ -26,6 +26,7 @@ import * as AutoImporter from './auto-importer/auto-importer.js';
 import * as ComponentsProvider from './components-provider/components-provider.js';
 import * as EmailLoader from './email-loader/email-loader.js';
 import * as ErrorList from './error-list/error-list.js';
+import * as StatePreview from './state-preview/state-preview.js';
 import * as FlyIn from './fly-in/base.js';
 import * as Validator from './validator/validator.js';
 import * as Editor from './editor/editor.js';
@@ -58,6 +59,17 @@ if (!embedMode.isActive) {
 const editor = Editor.createEditor(document.getElementById('source'), window);
 const preview = Preview.createPreview(document.getElementById('preview'));
 addSplitPaneBehavior(document.querySelector('main'));
+
+
+// configure state list behavior
+const stateIndicator = document.getElementById('preview-header-state');
+const stateListContainer = document.getElementById('state-preview');
+StatePreview.createStatePreview(stateListContainer, stateIndicator);
+
+events.subscribe(ErrorList.EVENT_ERROR_SELECTED, (error) =>
+  editor.setCursorAndFocus(error.line, error.col)
+);
+
 
 // configure error list behavior
 const errorIndicator = document.getElementById('error-indicator');
