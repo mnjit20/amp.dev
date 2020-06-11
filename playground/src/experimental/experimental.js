@@ -33,8 +33,12 @@ class ExperimentalView extends FlyIn {
 
     const content = document.createElement('div');
     content.className = 'experimental-view';
-    content.innerHTML = 'Lorem';
-    // content.appendChild();
+    content.innerHTML = `
+      <p class="experimental-view-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Learn more about experimental features.</p>
+      <form class="url-bar" action="">
+        <input class="url-bar-input" placeholder="Feature name" type="text" id="fname" name="input">
+        <input class="url-bar-submit" type="submit" value="ADD">
+      </form>`;
 
     this.upadateContent(content);
   }

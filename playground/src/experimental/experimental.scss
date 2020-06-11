@@ -2,5 +2,43 @@
 @import 'components/atoms/_text.scss';
 
 .experimental-view {
-  padding: 25px;
+  padding: 30px 20px;
+
+  &-intro {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .url-bar {
+    display: flex;
+    height: 55px;
+
+    & > * {
+      height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    & *:first-child {
+      margin-top: 0;
+    }
+
+    &-input {
+      flex: 1;
+      padding: 9px 13px;
+      border: 0;
+      border-radius: 4px 0 0 4px;
+      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
+    }
+
+    &-submit {
+      padding: 0 8px;
+      background: #005af0;
+      color: white;
+      border: 0;
+      border-radius: 0 4px 4px 0;
+    }
+  }
 }
