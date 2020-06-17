@@ -72,8 +72,8 @@ events.subscribe(ErrorList.EVENT_ERROR_SELECTED, (error) =>
 );
 
 // configure experiment fly in behavior
-const experimentIndicator = document.getElementById('preview-header-experiment');
-const experimentContainer = document.getElementById('experimental');
+const experimentIndicator = document.getElementById('preview-header-experiments');
+const experimentContainer = document.getElementById('experiments');
 ExperimentalView.createExperimentalView(experimentContainer, experimentIndicator);
 
 
