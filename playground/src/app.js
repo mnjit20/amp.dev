@@ -61,22 +61,10 @@ const editor = Editor.createEditor(document.getElementById('source'), window);
 const preview = Preview.createPreview(document.getElementById('preview'));
 addSplitPaneBehavior(document.querySelector('main'));
 
-const stateAlert = document.createElement('button');
-stateAlert.innerHTML = 'Alert state';
-stateAlert.style = 'position: fixed; top: 0; left: 0; z-index: 100';
-stateAlert.addEventListener('click', () => {
-  console.log('Waiting for state ...');
-  preview.getAmpState().then((state) => {
-    console.log('Got state ...', state);
-    alert(JSON.stringify(state))
-  });
-});
-document.body.appendChild(stateAlert);
-
 
 // configure state list behavior
 const stateIndicator = document.getElementById('preview-header-state');
-const stateListContainer = document.getElementById('state-preview');
+const stateListContainer = document.getElementById('state-view');
 StateView.createStateView(stateListContainer, stateIndicator);
 
 events.subscribe(ErrorList.EVENT_ERROR_SELECTED, (error) =>
